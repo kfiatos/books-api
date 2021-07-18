@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: 'Bookstore API'
+  version: '1'
+paths:
+  /api/v1/books:
+    get:
+      responses:
+        '200':
+          description: 'Return all the books stored in database'
+  '/api/v1/books/{id}':
+    get:
+      summary: 'Get book by ID'
+      operationId: getBook
+      parameters:
+        -
+          parameter: id
+          name: id
+          in: path
+          description: 'ID of the book'
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                properties:
+                  author: { type: string }
+                  title: { type: string }
+                  release_date: { type: string }
+                  price: { type: string }
+                  description: { type: string }
+                  isbn: { type: string }
+                  cover_url: { type: string }
+                  status: { type: integer }
+                type: object
+        '404':
+          description: 'When not book found'
+  /api/v1/books/new:
+    post:
+      summary: 'Create new book'
+      operationId: addBook
+      parameters:
+        -
+          name: body
+          in: path
+          required: true
+          content:
+            application/json:
+              schema:
+                properties:
+                  author: { type: string }
+                  title: { type: string }
+                  release_date: { type: string }
+                  price: { type: string }
+                  description: { type: string }
+                  isbn: { type: string }
+                  cover_url: { type: string }
+                  status: { type: integer }
+                type: object
+      responses:
+        '200':
+          description: 'Book successfully added to database'
+        '400':
+          description: 'Bad request when validation fails'
+        '409':
+          description: 'Book with given ISBN already stored'
