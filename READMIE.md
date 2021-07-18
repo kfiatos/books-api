@@ -5,6 +5,7 @@
   kolumnie, co dałoby możliwość np. zmiany waluty dla danego egzemplarza w zależności od rynku. W przypadku użycia typu `integer` rozwiązujemy problem zaokrąglania.
 * Wymaganie było, aby podać rok wydania książki. Często sam rok to za mało dlatego zastosowałem `release_date`.  
   Pozwala to na formatowanie tej wartości na więcej sposobów i zapisanie różnych dat wydania dla róznych egzemplarzy tej samej książki
+* Kolumna ISBN pozwala na wpisanie wartości NULL, bo stare książki nie mają czasem tego numeru nadanego.
 
 ### Uruchamianie aplikacji
 1. Klonujemy repozytorium
