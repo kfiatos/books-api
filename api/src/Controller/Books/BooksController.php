@@ -15,7 +15,6 @@ use OpenApi\Annotations as OA;
 
 class BooksController extends AbstractController
 {
-
     /**
      * @OA\Info(title="Bookstore API", version="1")
      */
@@ -90,16 +89,18 @@ class BooksController extends AbstractController
      *          in="path",
      *          required=true,
      *          @OA\JsonContent(
-     *               type="object",
-     *               @OA\Property(property="author", type="string"),
-     *               @OA\Property(property="title", type="string"),
-     *               @OA\Property(property="release_date", type="string"),
-     *               @OA\Property(property="price", type="string"),
-     *               @OA\Property(property="description", type="string"),
-     *               @OA\Property(property="isbn", type="string"),
-     *               @OA\Property(property="cover_url", type="string"),
-     *               @OA\Property(property="status", type="integer")
-     *          ),
+     *              type="array",
+     *              @OA\Items(
+     *                  @OA\Property(property="author", type="string"),
+     *                  @OA\Property(property="title", type="string"),
+     *                  @OA\Property(property="release_date", type="string"),
+     *                  @OA\Property(property="price", type="string"),
+     *                  @OA\Property(property="description", type="string"),
+     *                  @OA\Property(property="isbn", type="string"),
+     *                  @OA\Property(property="cover_url", type="string"),
+     *                  @OA\Property(property="status", type="integer")
+     *              )
+     *          )
      *     ),
      *     @OA\Response(response="200", description="Book successfully added to database"),
      *     @OA\Response(response="400", description="Bad request when validation fails"),

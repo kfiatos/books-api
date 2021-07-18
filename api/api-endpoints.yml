@@ -50,16 +50,10 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  author: { type: string }
-                  title: { type: string }
-                  release_date: { type: string }
-                  price: { type: string }
-                  description: { type: string }
-                  isbn: { type: string }
-                  cover_url: { type: string }
-                  status: { type: integer }
-                type: object
+                type: array
+                items:
+                  properties: { author: { type: string }, title: { type: string }, release_date: { type: string }, price: { type: string }, description: { type: string }, isbn: { type: string }, cover_url: { type: string }, status: { type: integer } }
+                  type: object
       responses:
         '200':
           description: 'Book successfully added to database'
